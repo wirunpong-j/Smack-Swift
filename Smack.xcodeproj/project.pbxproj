@@ -20,6 +20,7 @@
 		D3DFA11A20025191007C6E17 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFA11920025191007C6E17 /* LoginVC.swift */; };
 		D3DFA11D20025565007C6E17 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFA11C20025565007C6E17 /* CreateAccountVC.swift */; };
 		D3FE5CA12005E5D500A58A6C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FE5CA02005E5D500A58A6C /* AuthService.swift */; };
+		D3FE5CA32005F81900A58A6C /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FE5CA22005F81900A58A6C /* RoundedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		D3DFA11920025191007C6E17 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		D3DFA11C20025565007C6E17 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		D3FE5CA02005E5D500A58A6C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		D3FE5CA22005F81900A58A6C /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		D640D531F66AA75F57E44F1B /* Pods_Smack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF2D587BB682761990CD7C6F /* Pods-Smack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smack.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smack/Pods-Smack.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				D3DFA11420024146007C6E17 /* GradientView.swift */,
+				D3FE5CA22005F81900A58A6C /* RoundedButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3DFA10920023452007C6E17 /* ChannelVC.swift in Sources */,
+				D3FE5CA32005F81900A58A6C /* RoundedButton.swift in Sources */,
 				D3DFA1072002342D007C6E17 /* ChatVC.swift in Sources */,
 				D3DFA11D20025565007C6E17 /* CreateAccountVC.swift in Sources */,
 				D3FE5CA12005E5D500A58A6C /* AuthService.swift in Sources */,
