@@ -23,6 +23,12 @@ class CreateAccountVC: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if UserDataService.instance.avatarName != "" {
+            profileImage.image = UIImage(named: UserDataService.instance.avatarName)
+            avatarName = UserDataService.instance.avatarName
+        }
+    }
     
     @IBAction func createAccountBtnPressed(_ sender: Any) {
         guard let name = usernameText.text, usernameText.text != nil else { return }
@@ -38,7 +44,6 @@ class CreateAccountVC: UIViewController {
                         AuthService.instance.createUser(name: name, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor, completion: {
                             (success) in
                             if success {
-                                print(UserDataService.instance.name, UserDataService.instance.avatarName)
                                 self.performSegue(withIdentifier: UNWIND, sender: nil)
                             }
                         })
