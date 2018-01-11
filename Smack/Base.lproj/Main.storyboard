@@ -415,7 +415,7 @@
                                 <color key="textColor" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="UwR-1w-4w9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="UwR-1w-4w9" customClass="CircleImage" customModule="Smack" customModuleProvider="target">
                                 <rect key="frame" x="137" y="337.5" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="Fcv-rc-xLf"/>
@@ -450,6 +450,10 @@
                                     <action selector="genBGColorBtnPressed:" destination="MbN-Ed-gHL" eventType="touchUpInside" id="Z1A-cM-JLk"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="J4a-dQ-2Vj">
+                                <rect key="frame" x="169" y="255" width="37" height="37"/>
+                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -465,8 +469,10 @@
                             <constraint firstItem="0ck-9M-xGI" firstAttribute="bottom" secondItem="Xc0-Sp-grl" secondAttribute="bottom" constant="45" id="fHF-fs-qSy"/>
                             <constraint firstItem="qbd-ur-pyO" firstAttribute="width" secondItem="UwR-1w-4w9" secondAttribute="width" id="gLl-zo-jWm"/>
                             <constraint firstItem="0ck-9M-xGI" firstAttribute="trailing" secondItem="Isl-jE-SZy" secondAttribute="trailing" constant="16" id="gNI-OL-rk1"/>
+                            <constraint firstItem="J4a-dQ-2Vj" firstAttribute="centerY" secondItem="jyI-CD-gO8" secondAttribute="centerY" constant="-60" id="icG-X1-JOu"/>
                             <constraint firstItem="Isl-jE-SZy" firstAttribute="top" secondItem="0ck-9M-xGI" secondAttribute="top" id="ko7-Gm-NFO"/>
                             <constraint firstItem="qbd-ur-pyO" firstAttribute="centerX" secondItem="jyI-CD-gO8" secondAttribute="centerX" id="pfI-of-pK1"/>
+                            <constraint firstItem="J4a-dQ-2Vj" firstAttribute="centerX" secondItem="jyI-CD-gO8" secondAttribute="centerX" id="sbP-0H-MZN"/>
                             <constraint firstItem="2AC-hY-cu1" firstAttribute="top" secondItem="qbd-ur-pyO" secondAttribute="bottom" constant="3" id="upV-pV-hTF"/>
                             <constraint firstItem="Iri-ad-zcY" firstAttribute="top" secondItem="0ck-9M-xGI" secondAttribute="top" constant="60" id="zh9-hg-Vcp"/>
                         </constraints>
@@ -476,6 +482,7 @@
                         <outlet property="emailText" destination="rjL-uf-3JE" id="Z66-8h-FlA"/>
                         <outlet property="passwordText" destination="4py-dz-ySn" id="LR5-BX-1uE"/>
                         <outlet property="profileImage" destination="UwR-1w-4w9" id="BW5-I8-QYa"/>
+                        <outlet property="spinner" destination="J4a-dQ-2Vj" id="BBS-UY-Ekm"/>
                         <outlet property="usernameText" destination="xbh-Sk-Y7k" id="dWf-4f-VOY"/>
                         <segue destination="rHa-ee-w2Y" kind="unwind" identifier="unwindToChannel" unwindAction="prepareForUnwindWithSegue:" id="hTY-yq-ZhP"/>
                         <segue destination="Dyw-8b-mEu" kind="show" identifier="toAvatarPicker" id="h0p-uz-91w"/>
