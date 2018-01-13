@@ -43,7 +43,7 @@ class CreateAccountVC: UIViewController {
         guard let email = emailText.text, emailText.text != nil else { return }
         guard let password = passwordText.text, passwordText != nil else { return }
         
-        AuthService.instance.registerUser(email: email, password: password){
+        AuthService.instance.registerUser(email: email, password: password) {
             (success) in
             if success {
                 AuthService.instance.loginUser(email: email, password: password, completion: {
@@ -74,6 +74,7 @@ class CreateAccountVC: UIViewController {
         let b = CGFloat(arc4random_uniform(255)) / 255
         
         bgColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+        avatarColor = "[\(r), \(g), \(b), 1]"
         UIView.animate(withDuration: 0.2) {
             self.profileImage.backgroundColor = self.bgColor
         }
