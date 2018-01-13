@@ -12,6 +12,8 @@
 		D38420D32001F3F4004D1090 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D38420D12001F3F4004D1090 /* Main.storyboard */; };
 		D38420D52001F3F4004D1090 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D38420D42001F3F4004D1090 /* Assets.xcassets */; };
 		D38420D82001F3F4004D1090 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D38420D62001F3F4004D1090 /* LaunchScreen.storyboard */; };
+		D3A6B3C1200A0D4400B733BB /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A6B3BF200A0D4400B733BB /* ProfileVC.swift */; };
+		D3A6B3C2200A0D4400B733BB /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3A6B3C0200A0D4400B733BB /* ProfileVC.xib */; };
 		D3DFA1072002342D007C6E17 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFA1062002342D007C6E17 /* ChatVC.swift */; };
 		D3DFA10920023452007C6E17 /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFA10820023452007C6E17 /* ChannelVC.swift */; };
 		D3DFA11320023EC4007C6E17 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DFA11120023EC4007C6E17 /* SWRevealViewController.m */; };
@@ -35,6 +37,8 @@
 		D38420D42001F3F4004D1090 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D38420D72001F3F4004D1090 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D38420D92001F3F4004D1090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3A6B3BF200A0D4400B733BB /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		D3A6B3C0200A0D4400B733BB /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
 		D3DFA1062002342D007C6E17 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		D3DFA10820023452007C6E17 /* ChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC.swift; sourceTree = "<group>"; };
 		D3DFA11020023EC3007C6E17 /* Smack-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Smack-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 		D38420CC2001F3F4004D1090 /* Smack */ = {
 			isa = PBXGroup;
 			children = (
+				D3A6B3C3200A0D7B00B733BB /* XIBs */,
 				D3FE5C9F2005E5B700A58A6C /* Services */,
 				D3DFA11620024AEB007C6E17 /* Utilities */,
 				D3DFA10F20023EAD007C6E17 /* Supporting Files */,
@@ -117,6 +122,14 @@
 				D38420D92001F3F4004D1090 /* Info.plist */,
 			);
 			path = Smack;
+			sourceTree = "<group>";
+		};
+		D3A6B3C3200A0D7B00B733BB /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				D3A6B3C0200A0D4400B733BB /* ProfileVC.xib */,
+			);
+			path = XIBs;
 			sourceTree = "<group>";
 		};
 		D3DFA10320023402007C6E17 /* Model */ = {
@@ -145,6 +158,7 @@
 				D3DFA11920025191007C6E17 /* LoginVC.swift */,
 				D3DFA11C20025565007C6E17 /* CreateAccountVC.swift */,
 				D3FE5CA62006161100A58A6C /* AvatarPickerVC.swift */,
+				D3A6B3BF200A0D4400B733BB /* ProfileVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -239,6 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3A6B3C2200A0D4400B733BB /* ProfileVC.xib in Resources */,
 				D38420D82001F3F4004D1090 /* LaunchScreen.storyboard in Resources */,
 				D38420D52001F3F4004D1090 /* Assets.xcassets in Resources */,
 				D38420D32001F3F4004D1090 /* Main.storyboard in Resources */,
@@ -300,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3A6B3C1200A0D4400B733BB /* ProfileVC.swift in Sources */,
 				D3DFA10920023452007C6E17 /* ChannelVC.swift in Sources */,
 				D3FE5CA72006161100A58A6C /* AvatarPickerVC.swift in Sources */,
 				D3FE5CA32005F81900A58A6C /* RoundedButton.swift in Sources */,
