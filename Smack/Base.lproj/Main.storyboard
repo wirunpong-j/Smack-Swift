@@ -123,6 +123,9 @@
                                     <constraint firstAttribute="width" constant="30" id="SVx-Cy-RRn"/>
                                 </constraints>
                                 <state key="normal" image="addChannelButton"/>
+                                <connections>
+                                    <action selector="createChannelBtnPressed:" destination="ICx-jy-dhG" eventType="touchUpInside" id="MUJ-Bg-I21"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="A8A-Qf-9lK" customClass="CircleImage" customModule="Smack" customModuleProvider="target">
                                 <rect key="frame" x="20" y="572" width="75" height="75"/>

@@ -46,6 +46,12 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         setUpUserInfo()
     }
     
+    @IBAction func createChannelBtnPressed(_ sender: Any) {
+        let addChannel = AddChannelVC()
+        addChannel.modalPresentationStyle = .custom
+        present(addChannel, animated: true, completion: nil)
+    }
+    
     func setUpUserInfo() {
         if AuthService.instance.isLoggedIn {
             loginBtn.setTitle(UserDataService.instance.name, for: .normal)
