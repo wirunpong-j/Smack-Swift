@@ -148,7 +148,7 @@
                                 <rect key="frame" x="0.0" y="146" width="375" height="406"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="AtK-DN-41c">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="channelCell" id="AtK-DN-41c" customClass="ChannelCell" customModule="Smack" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AtK-DN-41c" id="Lyb-nl-cBx">
@@ -156,7 +156,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#general" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezv-VN-VeX">
-                                                    <rect key="frame" x="35" y="10" width="67" height="23.5"/>
+                                                    <rect key="frame" x="30" y="10" width="67" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -164,10 +164,13 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="ezv-VN-VeX" firstAttribute="centerY" secondItem="Lyb-nl-cBx" secondAttribute="centerY" id="C7Q-5s-VFA"/>
-                                                <constraint firstItem="ezv-VN-VeX" firstAttribute="leading" secondItem="Lyb-nl-cBx" secondAttribute="leadingMargin" constant="20" id="vwk-yA-XfU"/>
+                                                <constraint firstItem="ezv-VN-VeX" firstAttribute="leading" secondItem="Lyb-nl-cBx" secondAttribute="leadingMargin" constant="15" id="vwk-yA-XfU"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="channelName" destination="ezv-VN-VeX" id="CFw-4y-IMg"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -192,6 +195,7 @@
                         <viewLayoutGuide key="safeArea" id="pdz-aY-QSI"/>
                     </view>
                     <connections>
+                        <outlet property="channelTableView" destination="pUe-L9-3I4" id="jhn-Ev-8ta"/>
                         <outlet property="loginBtn" destination="YrH-r5-r07" id="wi9-HL-H2D"/>
                         <outlet property="userImage" destination="A8A-Qf-9lK" id="mjN-ev-0T8"/>
                         <segue destination="l9X-Rq-kFc" kind="show" identifier="toLogin" id="ybY-Zi-vbu"/>
