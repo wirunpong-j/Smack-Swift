@@ -39,18 +39,22 @@ class CreateAccountVC: UIViewController {
     @IBAction func createAccountBtnPressed(_ sender: Any) {
         spinner.isHidden = false
         
-        guard let name = usernameText.text, usernameText.text != nil else { return }
-        guard let email = emailText.text, emailText.text != nil else { return }
-        guard let password = passwordText.text, passwordText != nil else { return }
+        guard let name = usernameText.text, usernameText.text != "" else { return }
+        guard let email = emailText.text, emailText.text != "" else { return }
+        guard let password = passwordText.text, passwordText.text != "" else { return }
         
         AuthService.instance.registerUser(email: email, password: password) {
             (success) in
+            print("registerUser is \(success)")
             if success {
                 AuthService.instance.loginUser(email: email, password: password, completion: {
                     (success) in
+                    print("loginUser is \(success)")
                     if success {
                         AuthService.instance.createUser(name: name, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor, completion: {
                             (success) in
+                            print("createUser is \(success)")
+                            print("\(name) : \(email) : \(self.avatarName) : \(self.avatarColor)")
                             if success {
                                 self.spinner.isHidden = true
                                 self.spinner.stopAnimating()

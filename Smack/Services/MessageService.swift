@@ -16,6 +16,8 @@ class MessageService {
     var channels = [Channel]()
     
     func findAllChannel(completion: @escaping CompletionHandler) {
+        self.channels.removeAll()
+        print(self.channels)
         Alamofire.request(URL_GET_CHANNELS, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON {
             (response) in
             if response.result.error == nil {

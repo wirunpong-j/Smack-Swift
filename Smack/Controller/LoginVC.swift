@@ -28,9 +28,11 @@ class LoginVC: UIViewController {
         
         AuthService.instance.loginUser(email: username, password: password) {
             (success) in
+            print("login user is \(success)")
             if success {
                 AuthService.instance.findUserByEmail(completion: {
                     (success) in
+                    print("findUserByEmail is \(success)")
                     if success {
                         NotificationCenter.default.post(name: NOTIFY_USER_DATA_DID_CHANGE, object: nil)
                         self.indicatorView.isHidden = true
