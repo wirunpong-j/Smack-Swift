@@ -8,15 +8,21 @@
 
 import UIKit
 
-class ChatVC: UIViewController {
+class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var menuBtn: UIButton!
     @IBOutlet weak var channelNameLabel: UILabel!
     @IBOutlet weak var messageTextField: UITextField!
+    @IBOutlet weak var messagesTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.bindToKeyboard()
+        
+        messagesTableView.delegate = self
+        messagesTableView.dataSource = self
+        messagesTableView.estimatedRowHeight = 80
+        messagesTableView.rowHeight = UITableViewAutomaticDimension
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(ChatVC.handleTap))
         view.addGestureRecognizer(tap)
@@ -51,18 +57,6 @@ class ChatVC: UIViewController {
         }
     }
     
-    @objc func userDataDidChange(_ notify: Notification) {
-        if AuthService.instance.isLoggedIn {
-            onLoginGetMessages()
-        } else {
-            channelNameLabel.text = "Please Log In"
-        }
-    }
-    
-    @objc func channelSelected(_ notify: Notification) {
-        updateWithChannel()
-    }
-    
     func updateWithChannel() {
         let channelName = MessageService.instance.selectedChannel?.channelTitle ?? ""
         channelNameLabel.text = "#\(channelName)"
@@ -85,8 +79,41 @@ class ChatVC: UIViewController {
     func getMessages() {
         guard let channelId = MessageService.instance.selectedChannel?.id else { return }
         MessageService.instance.findAllMessageForChannel(channelId: channelId) { (success) in
-            
+            if success {
+                self.messagesTableView.reloadData()
+            }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as? MessageCell {
+            let message = MessageService.instance.messages[indexPath.row]
+            cell.configureCell(message: message)
+            
+            return cell
+        }
+        
+        return UITableViewCell()
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return MessageService.instance.messages.count
+    }
+    
+    @objc func userDataDidChange(_ notify: Notification) {
+        if AuthService.instance.isLoggedIn {
+            onLoginGetMessages()
+        } else {
+            channelNameLabel.text = "Please Log In"
+        }
+    }
+    
+    @objc func channelSelected(_ notify: Notification) {
+        updateWithChannel()
     }
     
     @objc func handleTap() {
