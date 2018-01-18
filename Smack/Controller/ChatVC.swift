@@ -15,6 +15,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var messagesTableView: UITableView!
     @IBOutlet weak var sendBtn: UIButton!
+    @IBOutlet weak var typingUsersLabel: UILabel!
     
     var isTyping = false
     
@@ -49,27 +50,41 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
         }
         
+        SocketService.instance.geyTypingUsers { (typingUsers) in
+            guard let channelId = MessageService.instance.selectedChannel?.id else { return }
+            var names = ""
+            var numberOfTypes = 0
+            
+            for (typingUser, channel) in typingUsers {
+                if typingUser != UserDataService.instance.name && channel == channelId {
+                    if names == "" {
+                        names = typingUser
+                    } else {
+                        names = "\(names), \(typingUser)"
+                    }
+                    
+                    numberOfTypes += 1
+                }
+            }
+            
+            if numberOfTypes > 0 && AuthService.instance.isLoggedIn {
+                var verb = "is"
+                if numberOfTypes > 1 {
+                    verb = "are"
+                }
+                
+                self.typingUsersLabel.text = "\(names) \(verb) typing a message"
+            } else {
+                self.typingUsersLabel.text = ""
+            }
+        }
+        
         if AuthService.instance.isLoggedIn {
             AuthService.instance.findUserByEmail { (success) in
                 NotificationCenter.default.post(name: NOTIFY_USER_DATA_DID_CHANGE, object: nil)
             }
         }
 
-    }
-    
-    @IBAction func sendMessageBtnPressed(_ sender: Any) {
-        if AuthService.instance.isLoggedIn {
-            guard let channelId = MessageService.instance.selectedChannel?.id else { return }
-            guard let message = messageTextField.text else { return }
-            
-            SocketService.instance.addMessage(messageBody: message, userId: UserDataService.instance.id, channelId: channelId) { (success) in
-                if success {
-                    self.messageTextField.text = ""
-                    self.messageTextField.resignFirstResponder()
-                }
-                
-            }
-        }
     }
     
     func onLoginGetMessages() {
@@ -100,13 +115,35 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    @IBAction func sendMessageBtnPressed(_ sender: Any) {
+        if AuthService.instance.isLoggedIn {
+            guard let channelId = MessageService.instance.selectedChannel?.id else { return }
+            guard let message = messageTextField.text else { return }
+            
+            SocketService.instance.addMessage(messageBody: message, userId: UserDataService.instance.id, channelId: channelId) { (success) in
+                if success {
+                    self.messageTextField.text = ""
+                    self.messageTextField.resignFirstResponder()
+                    
+                    SocketService.instance.socket.emit("stopType", UserDataService.instance.name, channelId)
+                    self.sendBtn.isHidden = true
+                    self.isTyping = false
+                }
+            }
+        }
+    }
+    
     @IBAction func messageBoxEditing(_ sender: Any) {
+        guard let channelId = MessageService.instance.selectedChannel?.id else { return }
+        
         if messageTextField.text == "" {
             isTyping = false
             sendBtn.isHidden = true
+            SocketService.instance.socket.emit("stopType", UserDataService.instance.name, channelId)
         } else {
             if isTyping == false {
                 sendBtn.isHidden = false
+                SocketService.instance.socket.emit("startType", UserDataService.instance.name, channelId)
             }
             isTyping = true
         }
