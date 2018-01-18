@@ -51,14 +51,6 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
     
-    @objc func userDataDidChange(_ notify: Notification) {
-        setUpUserInfo()
-    }
-    
-    @objc func channelsLoaded(_ notify: Notification) {
-        channelTableView.reloadData()
-    }
-    
     @IBAction func createChannelBtnPressed(_ sender: Any) {
         if AuthService.instance.isLoggedIn {
             let addChannel = AddChannelVC()
@@ -104,5 +96,13 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return MessageService.instance.channels.count
+    }
+    
+    @objc func userDataDidChange(_ notify: Notification) {
+        setUpUserInfo()
+    }
+    
+    @objc func channelsLoaded(_ notify: Notification) {
+        channelTableView.reloadData()
     }
 }
