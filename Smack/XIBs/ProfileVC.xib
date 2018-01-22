@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Heavy</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileVC" customModule="Smack" customModuleProvider="target">
+            <connections>
+                <outlet property="bgView" destination="PE4-vx-gfr" id="2Ca-bH-pU5"/>
+                <outlet property="emailText" destination="N2U-Gr-Lz0" id="CpZ-40-q55"/>
+                <outlet property="nameText" destination="78a-h1-WzE" id="QD0-GA-5HX"/>
+                <outlet property="profileImage" destination="p6q-5q-3bo" id="4r4-VW-mNj"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PE4-vx-gfr" userLabel="bgView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfc-9K-EJB">
+                    <rect key="frame" x="20" y="153.5" width="335" height="360"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Icz-Fh-gLq">
+                            <rect key="frame" x="299" y="8" width="28" height="28"/>
+                            <state key="normal" image="closeButton"/>
+                            <connections>
+                                <action selector="closeBtnPressed:" destination="-1" eventType="touchUpInside" id="q2l-fl-bFu"/>
+                            </connections>
+                        </button>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="PHH-11-nX1">
+                            <rect key="frame" x="67.5" y="50.5" width="200.5" height="219"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2o-uP-iAg">
+                                    <rect key="frame" x="35" y="0.0" width="130.5" height="33"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="24"/>
+                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="p6q-5q-3bo" customClass="CircleImage" customModule="Smack" customModuleProvider="target">
+                                    <rect key="frame" x="50.5" y="47" width="100" height="100"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="100" id="JdN-Si-gi6"/>
+                                        <constraint firstAttribute="width" constant="100" id="N1p-kb-jW3"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bell KunG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78a-h1-WzE">
+                                    <rect key="frame" x="63" y="161" width="74.5" height="22"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bbellkungdesu@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2U-Gr-Lz0">
+                                    <rect key="frame" x="0.0" y="197" width="200.5" height="22"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0q-av-6z3">
+                            <rect key="frame" x="130" y="309" width="74" height="43"/>
+                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="22"/>
+                            <state key="normal" title="Logout">
+                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="logoutBtnPressed:" destination="-1" eventType="touchUpInside" id="s5G-pq-wV5"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Icz-Fh-gLq" secondAttribute="trailing" constant="8" id="AoF-Zy-X3c"/>
+                        <constraint firstAttribute="height" constant="360" id="Bdr-1a-B1P"/>
+                        <constraint firstItem="PHH-11-nX1" firstAttribute="centerY" secondItem="qfc-9K-EJB" secondAttribute="centerY" constant="-20" id="PhW-f1-5NA"/>
+                        <constraint firstAttribute="bottom" secondItem="T0q-av-6z3" secondAttribute="bottom" constant="8" id="XdH-ih-zQ8"/>
+                        <constraint firstItem="PHH-11-nX1" firstAttribute="centerX" secondItem="qfc-9K-EJB" secondAttribute="centerX" id="llL-zj-YRb"/>
+                        <constraint firstItem="T0q-av-6z3" firstAttribute="centerX" secondItem="qfc-9K-EJB" secondAttribute="centerX" id="pG6-sp-Jh0"/>
+                        <constraint firstItem="Icz-Fh-gLq" firstAttribute="top" secondItem="qfc-9K-EJB" secondAttribute="top" constant="8" id="rT0-sT-sjF"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="qfc-9K-EJB" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="8lA-CB-bUn"/>
+                <constraint firstAttribute="trailing" secondItem="PE4-vx-gfr" secondAttribute="trailing" id="DxR-Qw-sJ2"/>
+                <constraint firstItem="qfc-9K-EJB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Ky2-ZD-xDb"/>
+                <constraint firstAttribute="trailing" secondItem="qfc-9K-EJB" secondAttribute="trailing" constant="20" id="bJO-BX-T2Y"/>
+                <constraint firstAttribute="bottom" secondItem="PE4-vx-gfr" secondAttribute="bottom" id="lNZ-kc-CxL"/>
+                <constraint firstItem="PE4-vx-gfr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tcL-AJ-6CU"/>
+                <constraint firstItem="PE4-vx-gfr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xdf-gI-sgp"/>
+            </constraints>
+            <point key="canvasLocation" x="25.5" y="51.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="closeButton" width="28" height="28"/>
+        <image name="profileDefault" width="192" height="192"/>
+    </resources>
+</document>
